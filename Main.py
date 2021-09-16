@@ -86,6 +86,8 @@ while True:
             aux = "abriendo whatsapp"
             sintetizador.hablar(aux)
             controlTecladoyMouse.abrir()
+            time.sleep(8)
+            controlTecladoyMouse.maximizar()
         elif (("bajar" in vozUsuario or "scroll down" in vozUsuario or "scrolldown" in vozUsuario) and modoPrueba) :
             sintetizador.hablar('bajando')
             controlTecladoyMouse.scrollDown()
@@ -121,10 +123,17 @@ while True:
             vozUsuario = vozUsuario[vozUsuario.find("escribir")+9:]
             sintetizador.hablar('escribiendo '+vozUsuario)
             controlTecladoyMouse.escribir(vozUsuario)
-        elif ("buscar" in vozUsuario and modoPrueba):
-            sintetizador.hablar("buscando")
+            time.sleep(1)
+            controlTecladoyMouse.enter()
+        elif ("buscar chat" in vozUsuario and modoPrueba):
+            sintetizador.hablar("que quieres buscar")
             vozUsuario = vozUsuario[vozUsuario.find("buscar")+7:]
             sintetizador.hablar('buscando '+vozUsuario)
+            sintetizador.hablar('muy bien')
+            controlTecladoyMouse.buscarChat()
+            controlTecladoyMouse.escribir(aux)
+            time.sleep(1)
+            controlTecladoyMouse.enter() 
         elif (("atras" in vozUsuario or "atrás" in vozUsuario or "escape" in vozUsuario) and modoPrueba):
             sintetizador.hablar('atrás')
             controlTecladoyMouse.escape()
@@ -167,12 +176,12 @@ while True:
             controlTecladoyMouse.borrarTodo()
         elif (( "borrar" in vozUsuario) and modoPrueba): 
             controlTecladoyMouse.borrarvozUsuario()
-        #nuevo#    
+
         elif(("llamar" in vozUsuario)and modoPrueba):
             sintetizador.hablar('se va a realizar una llamada')
             time.sleep(1)
             controlTecladoyMouse.llamada()
-        elif(("colgar" in vozUsuario and "llamada")and modoPrueba):
+        elif(("colgar llamada" in vozUsuario)and modoPrueba):
             sintetizador.hablar('se va a colgar la llamada')
             time.sleep(1)
             controlTecladoyMouse.colgarLLamada()
@@ -180,7 +189,7 @@ while True:
             sintetizador.hablar('se va a realizar una video llamada')
             time.sleep(1)
             controlTecladoyMouse.videoLLamada()
-        elif(("finalizar" in vozUsuario and "video")and modoPrueba):
+        elif(("finalizar video" in vozUsuario)and modoPrueba):
             sintetizador.hablar('se va a colgar la video llamada')
             time.sleep(1)
             controlTecladoyMouse.colgarVideoLLamada()     
@@ -203,10 +212,15 @@ while True:
             sintetizador.hablar('se va a silencair estes chat')
             time.sleep(1)
             controlTecladoyMouse.silenciarChat()  
-        elif(("buscar" in vozUsuario and "texto" in vozUsuario)and modoPrueba):
-            sintetizador.hablar('diga la palabra a buscar')
+        elif(("buscar texto" in vozUsuario)and modoPrueba):
+            sintetizador.hablar("diga la palabra a buscar")
+            vozUsuario = ReconocedordeVoz.reconocer("None").lower()
+            vozUsuario = vozUsuario[vozUsuario.find("buscar")+7:]            
+            sintetizador.hablar('buscando '+vozUsuario)
+            controlTecladoyMouse.buscarTextoChat()
+            controlTecladoyMouse.escribir(aux)
             time.sleep(1)
-            controlTecladoyMouse.buscarvozUsuarioChat() 
+            controlTecladoyMouse.enter() 
         elif(("dejar de" in vozUsuario and "buscar texto" in vozUsuario)and modoPrueba):
             sintetizador.hablar('muy bien')
             time.sleep(1)

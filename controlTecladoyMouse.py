@@ -63,9 +63,6 @@ def restaurar():
 
 def abrir():   
     os.system('WhatsApp.exe')
-
-def abrir1():
-    os.system('WhatsApp.exe')
     
 def archivarChat():
     controlTecladoyMouse.hotkey('ctrl','shift','e')
@@ -109,6 +106,9 @@ def borrarTexto():
 def borrarTodo():
     controlTecladoyMouse.hotkey('ctrl', 'a')    
     controlTecladoyMouse.hotkey('backspace')
+
+def maximizar():
+    controlTecladoyMouse.getWindowsWithTitle("Whastapp")[0].maximize()
 
 
 def replace(texto):
