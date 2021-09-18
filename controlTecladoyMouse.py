@@ -59,7 +59,8 @@ def minimizar():
 
 
 def restaurar():
-    controlTecladoyMouse.hotkey('win', 'shift', 'm')
+    controlTecladoyMouse.getWindowsWithTitle("Whastapp")[0].maximize()
+    #controlTecladoyMouse.hotkey('win', 'shift', 'm')
 
 def abrir():   
     os.system('WhatsApp.exe')
@@ -77,20 +78,26 @@ def buscarTextoChat():
     controlTecladoyMouse.hotkey('ctrl','shift','f')
 
 def llamada():
-    controlTecladoyMouse.moveTo(x= +1036,y= 96, duration=.5)
+    controlTecladoyMouse.moveTo(x= +1211,y= 56, duration=.5)
     controlTecladoyMouse.click()
 def colgarLLamada():
     controlTecladoyMouse.moveTo(x= +1316,y= 71, duration=.5)
     controlTecladoyMouse.click()
 
 def videoLLamada():
-    controlTecladoyMouse.moveTo(x= 987,y= 96, duration=.5)
+    controlTecladoyMouse.moveTo(x= 1159,y= 57, duration=.5)
     controlTecladoyMouse.click()
 def colgarVideoLLamada():
     controlTecladoyMouse.moveTo(x= +1231,y= 309, duration=.5)
     controlTecladoyMouse.click()
 def Verfoto():
     controlTecladoyMouse.moveTo(x= 567,y= 95, duration=.5)
+    controlTecladoyMouse.click()
+def microfono():
+    controlTecladoyMouse.moveTo(x= 1336,y= 731, duration=.5)
+    controlTecladoyMouse.click()
+def cancelarAudio ():
+    controlTecladoyMouse.moveTo(x= 1161,y= 731, duration=.5)
     controlTecladoyMouse.click()
 def marcarMensaje():
     controlTecladoyMouse.hotkey('ctrl','shift','u')

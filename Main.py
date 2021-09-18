@@ -1,5 +1,6 @@
 
 ###################### Librerias y dependencias
+from pyautogui import sleep
 import ReconocedordeVoz
 import sintetizador
 import ventana
@@ -72,7 +73,7 @@ while True:
                         sintetizador.hablar('muy bien, Espero haber sido de ayuda, saliendo del modo')
                         menuAyuda = False 
                 elif ("escritura" in vozUsuario):
-                    tex = 'En el módulo de escritura básicamente tiene los comandos necesarios para escribir o iniciar un chat nuevo,  como primer comando esta, nuevo, con este abre el panel de los contactos y posteriormente con el comando, escribir, puedes escribir el nombre del contacto, luego con el comando, enter o aceptar,  podrás enviar la petición para crear el chat nuevo, y con los mismo anteriores comandos podrás escribir una vez ya dentro del chat, si quieres enviar un mensaje a un contacto especifico de manera rápida podrás hacerlo con el siguiente comando, enviar mensaje a, y al final le añades el nombre el contacto, un ejemplo puede ser, enviar mensaje a Daniel, el aplicativo reconocerá el contacto y luego te pedirá que digas tu mensaje y luego lo enviara. ¿Desea preguntar sobre otro modulo? Responde con sí o no'  
+                    tex = 'En el módulo de escritura básicamente tiene los comandos necesarios para escribir o iniciar un chat nuevo,  como primer comando esta, nuevo, con este abre el panel de los contactos y posteriormente con el comando, escribir, puedes escribir el nombre del contacto, luego con el comando, enter o aceptar,  podrás listo la petición para crear el chat nuevo, y con los mismo anteriores comandos podrás escribir una vez ya dentro del chat, si quieres listo un mensaje a un contacto especifico de manera rápida podrás hacerlo con el siguiente comando, listo mensaje a, y al final le añades el nombre el contacto, un ejemplo puede ser, listo mensaje a Daniel, el aplicativo reconocerá el contacto y luego te pedirá que digas tu mensaje y luego lo listoa. ¿Desea preguntar sobre otro modulo? Responde con sí o no'  
                     sintetizador.hablar(tex) 
                     vozUsuario = ReconocedordeVoz.reconocer("None").lower()
                     if ("si" in vozUsuario or "sí" in vozUsuario):
@@ -87,14 +88,14 @@ while True:
             sintetizador.hablar(aux)
             controlTecladoyMouse.abrir()
             time.sleep(8)
-            controlTecladoyMouse.maximizar()
+            controlTecladoyMouse.maximizar()   
         elif (("bajar" in vozUsuario or "scroll down" in vozUsuario or "scrolldown" in vozUsuario) and modoPrueba) :
             sintetizador.hablar('bajando')
             controlTecladoyMouse.scrollDown()
         elif (("abajo" in vozUsuario  or "siguiente" in vozUsuario) and modoPrueba):
             sintetizador.hablar('bajando siguiente chat') 
             controlTecladoyMouse.siguienteChat()   
-        elif ("arriba" in vozUsuario and modoPrueba):
+        elif (("arriba" in vozUsuario or "Anterior" in vozUsuario) and modoPrueba):
             sintetizador.hablar('subiendo al siguiente chat') 
             controlTecladoyMouse.anteriorChat()   
         elif (("subir" in vozUsuario or "scroll up" in vozUsuario or "scrollup" in vozUsuario) and modoPrueba) :
@@ -105,7 +106,7 @@ while True:
             controlTecladoyMouse.minimizar()
         elif ((("restaurar" in vozUsuario) or ("maximi" in vozUsuario)) and modoPrueba):
             sintetizador.hablar('abriendo whatsapp')
-            controlTecladoyMouse.abrir1()
+            controlTecladoyMouse.abrir()
         elif ((("aumentar" in vozUsuario and  "letra" in vozUsuario) or  "acercar" in vozUsuario) and modoPrueba):
             sintetizador.hablar('aumentando letra')
             controlTecladoyMouse.acercar()
@@ -118,13 +119,7 @@ while True:
         elif ("perfil" in vozUsuario and modoPrueba):
             sintetizador.hablar('mostrando perfil')
             controlTecladoyMouse.foto()
-        elif ("escribir" in vozUsuario and modoPrueba):
-            sintetizador.hablar('claro')
-            vozUsuario = vozUsuario[vozUsuario.find("escribir")+9:]
-            sintetizador.hablar('escribiendo '+vozUsuario)
-            controlTecladoyMouse.escribir(vozUsuario)
-            time.sleep(1)
-            controlTecladoyMouse.enter()
+    
         elif ("buscar chat" in vozUsuario and modoPrueba):
             sintetizador.hablar("que quieres buscar")
             vozUsuario = vozUsuario[vozUsuario.find("buscar")+7:]
@@ -133,7 +128,7 @@ while True:
             controlTecladoyMouse.buscarChat()
             controlTecladoyMouse.escribir(aux)
             time.sleep(1)
-            controlTecladoyMouse.enter() 
+            controlTecladoyMouse.enter()
         elif (("atras" in vozUsuario or "atrás" in vozUsuario or "escape" in vozUsuario) and modoPrueba):
             sintetizador.hablar('atrás')
             controlTecladoyMouse.escape()
@@ -146,6 +141,12 @@ while True:
         elif (("aceptar" in vozUsuario or "enter" in vozUsuario) and modoPrueba):
             sintetizador.hablar("aceptar")
             controlTecladoyMouse.enter() 
+
+        elif ("escribir" in vozUsuario and modoPrueba):
+            sintetizador.hablar('claro')
+            vozUsuario = vozUsuario[vozUsuario.find("escribir")+9:]
+            sintetizador.hablar('escribiendo '+vozUsuario)
+            controlTecladoyMouse.escribir(vozUsuario)
         elif (("enviar" in vozUsuario and  "mensaje a" in vozUsuario) and modoPrueba): 
             aux = vozUsuario[vozUsuario.find("mensaje a")+10:]
             tex = 'que mensaje desea darle a ',aux,'?'
@@ -233,6 +234,18 @@ while True:
             sintetizador.hablar('muy bien')
             time.sleep(1)
             controlTecladoyMouse.marcarMensaje()
+        elif(("mensaje vos" in vozUsuario or "enviar vo" in vozUsuario) and modoPrueba):
+            sintetizador.hablar("se va a mandar un mensaje de voz")
+            time.sleep(1)
+            controlTecladoyMouse.microfono()
+        elif(("listo" in vozUsuario or "enviar" in vozUsuario) and modoPrueba):
+            controlTecladoyMouse.microfono()
+            time.sleep(1)
+            sintetizador.hablar("se a enviado el audio exitosa mente")
+        elif(("cancelar voz" in vozUsuario or "cancelar voz" in vozUsuario) and modoPrueba):
+            controlTecladoyMouse.cancelarAudio()
+            time.sleep(1)
+            sintetizador.hablar("se cancelo el mensaje de voz")
         elif (("cerrar" in vozUsuario and "whatsapp") and modoPrueba):
             sintetizador.hablar("cerrando whatsapp")
             controlTecladoyMouse.cerrarVentana() 
