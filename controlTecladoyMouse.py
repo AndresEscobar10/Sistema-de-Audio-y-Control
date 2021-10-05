@@ -103,13 +103,13 @@ def marcarMensaje():
     controlTecladoyMouse.hotkey('ctrl','shift','u')
 def escape():
     controlTecladoyMouse.press('esc')
-
+#no esta funcionando    
 def borrar():
-    controlTecladoyMouse.hotkey('ctrl', 'backspace')
-
+    controlTecladoyMouse.hotkey('ctrl', 'shift','d')
+#no esta funcionando
 def borrarTexto():
     controlTecladoyMouse.hotkey('backspace')
-
+#no esta funcionando
 def borrarTodo():
     controlTecladoyMouse.hotkey('ctrl', 'a')    
     controlTecladoyMouse.hotkey('backspace')
