@@ -7,7 +7,7 @@ import controlTecladoyMouse
 import time
 import threading
 
-duracion = "3" 
+duracion = "4" 
 modoPrueba = True
 menuAyuda = True
 tiempo = {"uno":1,"1":1,"dos":2,"2":2,"tres":3,"3":3,"cuatro":4,"4":4,"cinco":5,"5":5,"seis":6,"6":6,"siente":7,"7":7,"ocho":8,"8":8,"nueve":9,"9":9,"diez":10,"10":10}
@@ -43,7 +43,7 @@ while True:
                 sintetizador.hablar("el nuevo tiempo de escucha cambio a "+aux2+ " segundos.")
                 duracion = aux2
             else:
-                sintetizador.hablar("el numero dicho no fue entendido correctamente, queda definido forma automatica.")
+                sintetizador.hablar("el numero dicho no fue entendido correctamente, queda de finido de forma automatica.")
                 duracion = "None"
 
         if ("modo" in vozUsuario  and "ayuda" in vozUsuario):

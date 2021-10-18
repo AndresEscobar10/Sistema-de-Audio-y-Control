@@ -13,9 +13,9 @@ def reconocer(duracion):
             audio = r.listen(source,phrase_time_limit = int(duracion))
         
         try:
-            response = r.recognize_google(audio, language="es-CO")
-            print("Logro reconocer: '" + response + "'")
-            return response
+            responde = r.recognize_google(audio, language="es-CO")
+            print("Logro reconocer: '" + responde + "'")
+            return responde
         except sr.UnknownValueError:
             return 'No reconozco'
         except sr.RequestError as e:
