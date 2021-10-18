@@ -1,7 +1,6 @@
 import pyautogui as controlTecladoyMouse
-import subprocess
 import os
-
+import subprocess
 
 def buscar(texto):
     subprocess.call(
@@ -80,43 +79,59 @@ def buscarTextoChat():
 def llamada():
     controlTecladoyMouse.moveTo(x= +1211,y= 56, duration=.5)
     controlTecladoyMouse.click()
+
 def colgarLLamada():
-    controlTecladoyMouse.moveTo(x= +1316,y= 71, duration=.5)
+    controlTecladoyMouse.moveTo(x= +1316,y= 70, duration=.5)
     controlTecladoyMouse.click()
 
 def videoLLamada():
-    controlTecladoyMouse.moveTo(x= 1159,y= 57, duration=.5)
+    controlTecladoyMouse.moveTo(x= 1160,y= 56, duration=.5)
     controlTecladoyMouse.click()
+
 def colgarVideoLLamada():
-    controlTecladoyMouse.moveTo(x= +1231,y= 309, duration=.5)
+    controlTecladoyMouse.moveTo(x= +1230,y= 3010, duration=.5)
     controlTecladoyMouse.click()
+#cuando contestan las coordenadas son x=1229 ,y=311
+
 def Verfoto():
-    controlTecladoyMouse.moveTo(x= 567,y= 95, duration=.5)
+    controlTecladoyMouse.moveTo(x= 442,y= 48, duration=.5)
     controlTecladoyMouse.click()
+def cerrarVerFoto():
+    controlTecladoyMouse.moveTo(x= 992,y= 59, duration=.5)
+    controlTecladoyMouse.click()
+
 def microfono():
     controlTecladoyMouse.moveTo(x= 1336,y= 731, duration=.5)
     controlTecladoyMouse.click()
+
 def cancelarAudio ():
     controlTecladoyMouse.moveTo(x= 1161,y= 731, duration=.5)
     controlTecladoyMouse.click()
+    
 def marcarMensaje():
     controlTecladoyMouse.hotkey('ctrl','shift','u')
+
 def escape():
     controlTecladoyMouse.press('esc')
 #no esta funcionando    
 def borrar():
     controlTecladoyMouse.hotkey('ctrl', 'shift','d')
-#no esta funcionando
+
+#no se esta teniendo en cuenta
 def borrarTexto():
     controlTecladoyMouse.hotkey('backspace')
 #no esta funcionando
-def borrarTodo():
-    controlTecladoyMouse.hotkey('ctrl', 'a')    
-    controlTecladoyMouse.hotkey('backspace')
-
+def eliminarChat():
+    controlTecladoyMouse.hotkey('ctrl', 'shift', 'd') 
+    controlTecladoyMouse.moveTo(x= 780,y= 426, duration=1)
+    controlTecladoyMouse.click()   
+#coordena para cancelar eliminar chat x=633, y=422
 def maximizar():
     controlTecladoyMouse.getWindowsWithTitle("Whastapp")[0].maximize()
 
+def fijarChat():
+    #permite fijarlo y desfijarlo
+    controlTecladoyMouse.hotkey('ctrl','shift','p')
 
 def replace(texto):
     texto.replace("á","a")

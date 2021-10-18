@@ -1,11 +1,4 @@
-##############################################
-# Instalar las dependencias
-# pip3 install pyaudio
-# pip3 install SpeechRecognition
-##############################################
-
 import speech_recognition as sr
-
 
 def reconocer(duracion):
     global r
@@ -21,10 +14,11 @@ def reconocer(duracion):
         
         try:
             response = r.recognize_google(audio, language="es-CO")
-            print("Entendi: '" + response + "'")
+            print("Logro reconocer: '" + response + "'")
             return response
         except sr.UnknownValueError:
-            return 'No te entendi'
+            return 'No reconozco'
         except sr.RequestError as e:
             print("GSR; {0}".format(e))
-            return 'No logre reconocer ningun audio'
+            return 'No logre reconocer entrada de audio'
+
