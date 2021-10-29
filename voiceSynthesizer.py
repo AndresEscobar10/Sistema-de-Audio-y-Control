@@ -1,3 +1,4 @@
+#sintetizador de voz
 import pyttsx3
 
 tts = pyttsx3.init()

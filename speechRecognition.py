@@ -1,3 +1,4 @@
+#reconocimiento de voz
 import speech_recognition as sr
 
 def reconocer(duracion):
